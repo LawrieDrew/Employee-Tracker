@@ -26,3 +26,9 @@ CREATE TABLE role(
      role_id INT ,
      manager_id INT,
  );
+
+ UPDATE
+ SET
+ WHERE
+
+ SELECT * FROM 
