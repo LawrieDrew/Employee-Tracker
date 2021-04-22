@@ -7,7 +7,7 @@ const pass = require('./config.js');
 
 const connection = mysql.createConnection({
     host:'localhost',
-    port: '3306',
+    port: 3306,
     user: 'root',
     password: '',
     database: 'trackerDB',
@@ -15,7 +15,7 @@ const connection = mysql.createConnection({
 
 connection.connect((err) => {
     if (err) throw err;
-    console.log('connected as id ${connection.threadID}');
+    console.log(`connected as id ${connection.threadID}`);
     connection.end();
 
 
