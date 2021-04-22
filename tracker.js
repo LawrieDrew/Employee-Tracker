@@ -17,9 +17,6 @@ connection.connect((err) => {
     if (err) throw err;
     console.log(`connected as id ${connection.threadID}`);
     connection.end();
-
-
-
 })
 
 //make a list w/switch statement like Corey taught you
@@ -32,3 +29,72 @@ connection.connect((err) => {
 //remove ee
 //remove department 
 
+function init() {
+    inquirer.prompt({
+        type: 'list',
+        message: 'What would you like to do?',
+        name: 'switch',
+        choices: ['View all employees', 'View all departments', 'View all Roles', 'View ee by manager', 'Remove ee', 'Exit']
+    }) .then(answer =>{
+        if(answer.switch === '' ){
+            ask()
+        } else if(answer.switch === ''){
+            console.log('Direction is equal to ')
+        } else if(answer.switch === ''){
+            console.log('Direction is equal to ')
+        } else{
+            process.exit()
+        }
+    })
+
+}
+const  = [
+    {
+        type: 'input',
+        message: '',
+        name: '',
+    },
+    {
+        type: 'input',
+        message: '',
+        name: '',
+    },
+    {
+        type: 'input',
+        message: '',
+        name: '',
+    },
+    {
+        type: 'input',
+        message: '',
+        name: '',
+    }
+];
+const managerQues = [
+    {
+        type: 'input',
+        message: '',
+        name: '',
+    },
+    {
+        type: 'input',
+        message: '',
+        name: '',
+    },
+    {
+        type: 'input',
+        message: '',
+        name: '',
+    },
+    {
+        type: 'input',
+        message: '',
+        name: '',
+    }
+];
+function ask(){
+    inquirer.prompt().then(answers =>{
+        console.log(answers); const  = new (answers.);
+        team.push()
+    })
+}
