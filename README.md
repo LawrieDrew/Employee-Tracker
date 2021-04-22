@@ -10,7 +10,7 @@ A Content Management System interface to aid companies in tracking and managing 
 
 * [Usage](#Usage)
 
-*[License](#License)
+* [License](#License)
 
 # Installation
 
