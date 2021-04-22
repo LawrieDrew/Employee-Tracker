@@ -4,7 +4,12 @@ const mysql = require('mysql');
 const consoleTable = require('console.table');
 const pass = require('./config.js');
 
+//question files
+//is this where we do the joins?
+
 //connections
+
+const pass = require('./config');
 
 const connection = mysql.createConnection({
     host:'localhost',
@@ -17,7 +22,7 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
     if (err) throw err;
     console.log(`connected as id ${connection.threadID}`);
-    connection.end();
+    init();
 })
 
 //make a list w/switch statement like Corey taught you
@@ -71,28 +76,7 @@ const  = [
         name: '',
     }
 ];
-const managerQues = [
-    {
-        type: 'input',
-        message: '',
-        name: '',
-    },
-    {
-        type: 'input',
-        message: '',
-        name: '',
-    },
-    {
-        type: 'input',
-        message: '',
-        name: '',
-    },
-    {
-        type: 'input',
-        message: '',
-        name: '',
-    }
-];
+
 function ask(){
     inquirer.prompt().then(answers =>{
         console.log(answers); const  = new (answers.);
