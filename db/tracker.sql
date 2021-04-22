@@ -35,6 +35,8 @@ CREATE TABLE role(
  SET
  WHERE
 
+/* joins! */
+
  SELECT * FROM department;
  SELECT * FROM role;
  SELECT * FROM employee;

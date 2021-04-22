@@ -5,7 +5,8 @@ const consoleTable = require('console.table');
 const pass = require('./config.js');
 
 //question files
-//is this where we do the joins?
+
+
 
 //connections
 
@@ -40,42 +41,41 @@ function init() {
         type: 'list',
         message: 'What would you like to do?',
         name: 'switch',
-        choices: ['View all employees', 'View all departments', 'View all Roles', 'View ee by manager', 'Remove ee', 'Exit']
-    }) .then(answer =>{
-        if(answer.switch === '' ){
-            ask()
-        } else if(answer.switch === ''){
-            console.log('Direction is equal to ')
-        } else if(answer.switch === ''){
-            console.log('Direction is equal to ')
-        } else{
-            process.exit()
+        choices: [
+        'View all employees',
+        'View all departments', 
+        'View all roles', 
+        'Add ee', 
+        'Remove ee', 
+        'Exit'
+    ],
+
+   // }) .then(answer =>{
+     //   if(answer.switch === '' ){
+        //    ask()
+        //} else if(answer.switch === ''){
+          //  console.log('Direction is equal to ')
+       // } else if(answer.switch === ''){
+         //   console.log('Direction is equal to ')
+        //} else{
+          //  process.exit()
+        //}
+
+        switch(expression) {
+            case x
+            //code block
+            break;
+            case y
+            //code block
+            break;
+            case 'Exit';
+            connection.end();
+            break;
         }
     })
 
 }
-const  = [
-    {
-        type: 'input',
-        message: '',
-        name: '',
-    },
-    {
-        type: 'input',
-        message: '',
-        name: '',
-    },
-    {
-        type: 'input',
-        message: '',
-        name: '',
-    },
-    {
-        type: 'input',
-        message: '',
-        name: '',
-    }
-];
+
 
 function ask(){
     inquirer.prompt().then(answers =>{
