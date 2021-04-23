@@ -16,7 +16,7 @@ const connection = mysql.createConnection({
     host:'localhost',
     port: 3306,
     user: 'root',
-    password: '',
+    password: 'root',
     database: 'trackerDB',
 });
 
@@ -45,22 +45,34 @@ function init() {
         'View all employees',
         'View all departments', 
         'View all roles', 
-        'Add ee', 
-        'Remove ee', 
+        'Add employee', 
+        'Remove employee', 
         'Exit'
     ],
 
-   // }) .then(answer =>{
-     //   if(answer.switch === '' ){
-        //    ask()
-        //} else if(answer.switch === ''){
-          //  console.log('Direction is equal to ')
-       // } else if(answer.switch === ''){
-         //   console.log('Direction is equal to ')
-        //} else{
-          //  process.exit()
-        //}
-
+}) .then(function (answer) {
+    switch (answer.action) {
+        case 'View all employees';
+            viewEmployees();
+            break;
+        case 'View all departments';
+            viewDepartments();
+            break;
+        case 'View all roles';
+            viewRoles();
+            break;
+        case 'Add employee';
+            viewAddEmp();
+            break;
+        case 'Remove employee',
+            viewRemEmp();
+            break;
+        case 'Exit';
+            connection.end();
+            break;
+    }
+}
+        
         switch(expression) {
             case x
             //code block
@@ -75,7 +87,6 @@ function init() {
     })
 
 }
-
 
 function ask(){
     inquirer.prompt().then(answers =>{
