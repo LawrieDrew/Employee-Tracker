@@ -4,10 +4,6 @@ const mysql = require('mysql');
 const consoleTable = require('console.table');
 const pass = require('./config.js');
 
-//question files
-
-
-
 //connections
 
 const pass = require('./config');
@@ -52,45 +48,51 @@ function init() {
 
 }) .then(function (answer) {
     switch (answer.action) {
-        case 'View all employees';
+        case 'View all employees':
             viewEmployees();
             break;
-        case 'View all departments';
+        case 'View all departments':
             viewDepartments();
             break;
-        case 'View all roles';
+        case 'View all roles':
             viewRoles();
             break;
-        case 'Add employee';
-            viewAddEmp();
+        case 'Add employee':
+            AddEmp();
             break;
-        case 'Remove employee',
-            viewRemEmp();
+        case 'Remove employee':
+            RemEmp();
             break;
-        case 'Exit';
+        case 'Exit':
             connection.end();
             break;
     }
-}
-        
-        switch(expression) {
-            case x
-            //code block
-            break;
-            case y
-            //code block
-            break;
-            case 'Exit';
-            connection.end();
-            break;
-        }
-    })
+})
 
 }
 
-function ask(){
-    inquirer.prompt().then(answers =>{
-        console.log(answers); const  = new (answers.);
-        team.push()
-    })
-}
+//function ask(){
+ //   inquirer.prompt().then(answers =>{
+  //      console.log(answers); const  = new (answers.);
+  //      team.push()
+  //  })
+//}
+
+//function for each option
+//joins here!
+// SELECT * FROM department;
+ // SELECT * FROM role;
+ // SELECT * FROM employee;
+
+function viewEmployees
+
+function viewDepartments
+
+function viewRoles
+
+function AddEmp
+
+function RemEmp
+
+
+function connection.end();
