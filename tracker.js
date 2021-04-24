@@ -2,12 +2,10 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql');
 const consoleTable = require('console.table');
-
+const pass = require('./config');
 
 //connections
 //passwords 
-
-const pass = require('./config');
 
 const connection = mysql.createConnection({
     host:'localhost',
@@ -93,7 +91,7 @@ function viewDepartments() {
 }
 
 function viewRoles() {
-    var query = 'SELECT * FROM role':
+    var query = 'SELECT * FROM role';
     connection.query(query, function(err, res) {
         if(err) throw err;
         console.log(res.length + ' roles match criteria');
