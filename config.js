@@ -1,3 +1,3 @@
-const pass = "";
+const pass = "Darling22!";
 
 module.exports = pass;
