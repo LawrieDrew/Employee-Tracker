@@ -2,11 +2,11 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql');
 const consoleTable = require('console.table');
-const pass = require('./config.js');
+
 
 //connections
 
-const pass = require('./config'); //env?
+const pass = require('./config');
 
 const connection = mysql.createConnection({
     host:'localhost',
@@ -178,4 +178,4 @@ function removeEmp() {
     })
 }
 
-function connection.end();
+init();
