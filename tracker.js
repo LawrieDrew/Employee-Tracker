@@ -4,6 +4,12 @@ const mysql = require('mysql');
 const consoleTable = require('console.table');
 const pass = require('./config');
 
+//questions
+const deptQues = require('./db/questions/dept');
+const empQues = require('./db/questions/employee');
+const roleQues = require('./db/questions/role');
+
+
 //connections
 //passwords 
 
@@ -15,6 +21,7 @@ const connection = mysql.createConnection({
     database: 'trackerDB',
 });
 
+module.exports = connection;
 
 //make a list w/switch statement
 //what would you like to do?
