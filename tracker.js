@@ -69,13 +69,6 @@ function init() {
 
 }
 
-//function ask(){
- //   inquirer.prompt().then(answers =>{
-  //      console.log(answers); const  = new (answers.);
-  //      team.push()
-  //  })
-//}
-
 //function for each option
 //joins here!
 // SELECT * FROM department;
@@ -113,7 +106,6 @@ function viewRoles() {
     })
 }
 
-//extend ee table?
 function AddEmp() {
     connection.query('SELECT * FROM role', function(err, res) {
         if (err) throw err;
@@ -185,4 +177,5 @@ function removeEmp() {
         });
     })
 }
+
 function connection.end();

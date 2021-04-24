@@ -14,14 +14,14 @@ CREATE TABLE department (
 CREATE TABLE role(
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(30) NOT NULL, 
-    salary DECIMAL(9,2) NOT NULL, /*what is decimal supposed to be? 6 figures? does it matter?*/
+    salary DECIMAL(9,2) NOT NULL, 
     department_id INT NOT NULL,
     PRIMARY KEY (id),
 
  );
 
  CREATE TABLE employee(
-     id INT NOT NULL AUTO_INCREMENT, /*or primary key here? */
+     id INT NOT NULL AUTO_INCREMENT, 
      first_name VARCHAR(30),
      last_name VARCHAR(30),
      role_id INT ,
