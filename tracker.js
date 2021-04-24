@@ -10,8 +10,7 @@ const empQues = require('./db/questions/employee');
 const roleQues = require('./db/questions/role');
 
 
-//connections
-//passwords 
+//connections & passwords
 
 const connection = mysql.createConnection({
     host:'localhost',
