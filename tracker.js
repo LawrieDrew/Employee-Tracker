@@ -6,13 +6,13 @@ const pass = require('./config.js');
 
 //connections
 
-const pass = require('./config');
+const pass = require('./config'); //env?
 
 const connection = mysql.createConnection({
     host:'localhost',
     port: 3306,
     user: 'root',
-    password: 'root',
+    password: 'pass',
     database: 'trackerDB',
 });
 
@@ -22,15 +22,13 @@ connection.connect((err) => {
     init();
 })
 
-//make a list w/switch statement like Corey taught you
+//make a list w/switch statement
 //what would you like to do?
 //View all employees
 //View all departments
 //View all roles
 //Search for ee
-//search for ee by manager
 //remove ee
-//remove department 
 
 function init() {
     inquirer.prompt({
@@ -84,15 +82,107 @@ function init() {
  // SELECT * FROM role;
  // SELECT * FROM employee;
 
-function viewEmployees
+function viewEmployees() {
+    var query = 'SELECT * FROM employee';
+    connection.query(query, function(err, res) {
+        if (err) throw err;
+        console.log(res.length + " employees match criteria");
+        console.table('All Employees:', res);
+        init();
+    })
+}
 
-function viewDepartments
+function viewDepartments() {
+    var query = 'SELECT * FROM department';
+    connection.query(query, function(err, res) {
+        if (err) throw err;
+        console.log(res.length + ' departments match criteria');
+        console.table('All Departments', res);
+        init();
+    })
 
-function viewRoles
+}
 
-function AddEmp
+function viewRoles() {
+    var query = 'SELECT * FROM role':
+    connection.query(query, function(err, res) {
+        if(err) throw err;
+        console.log(res.length + ' roles match criteria');
+        console.table('All roles', res);
+        init();
+    })
+}
 
-function RemEmp
+//extend ee table?
+function AddEmp() {
+    connection.query('SELECT * FROM role', function(err, res) {
+        if (err) throw err;
 
+        inquirer.prompt([
+        {
+            name: 'first_name',
+            type: 'input',
+            message: 'New employees frist name',
+        },
+        {
+            name: 'last_name',
+            type: 'input',
+            message: 'New employees last name',
 
+        },
+        {
+            name: 'role',
+            type: 'list',
+            choices: 
+                function() {
+                    var roleArray = [];
+                    for (let i = 0; i < res.length; i++) {
+                        roleArray.push(res[i].title);
+                    }
+                    return roleArray;
+                },
+                message: 'New employees Role'
+        }
+     ]).then(function (answer) {
+         let roleID;
+         for (let j=0; j < res.length; j++) {
+             if (res[j].title == answer.role) {
+                 roleID = res[j].id;
+                 console.log(roleID);
+             }
+         };
+         connection.query(
+             'INSERT INTO employee SET?',
+             {
+                first_name: answer.first_name,
+                last_name: answer.last_name,
+                role_id: roleID,
+             },
+             function (err) {
+                 if (err) throw err;
+                 console.log( 'New employee successfully added');
+                 init()
+             }
+         )
+     })
+    
+    })
+}
+
+function removeEmp() {
+    inquirer.prompt ({
+        name: 'removeEmp',
+        type: 'input',
+        message: 'Confirm employee ID to remove'
+    })
+     .then(function (answer) {
+        console.log(answer);
+        var query = 'DELETE FROM employee WHERE ?';
+        var newId = Number(answer.removeEmp);
+        console.log(newId);
+        connection.query(query, { id: newId }, function (err, res){
+            init();
+        });
+    })
+}
 function connection.end();
