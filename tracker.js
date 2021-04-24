@@ -5,6 +5,7 @@ const consoleTable = require('console.table');
 
 
 //connections
+//passwords 
 
 const pass = require('./config');
 
@@ -12,15 +13,10 @@ const connection = mysql.createConnection({
     host:'localhost',
     port: 3306,
     user: 'root',
-    password: 'pass',
+    password: pass,
     database: 'trackerDB',
 });
 
-connection.connect((err) => {
-    if (err) throw err;
-    console.log(`connected as id ${connection.threadID}`);
-    init();
-})
 
 //make a list w/switch statement
 //what would you like to do?
