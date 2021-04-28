@@ -10,6 +10,8 @@ A Content Management System interface to aid companies in tracking and managing 
 
 * [Usage](#Usage)
 
+* [Demo](#Demo)
+
 * [License](#License)
 
 # Installation
@@ -19,6 +21,10 @@ The following dependencies must be installed to run application: mysql, inquirer
 # Usage
 
 Used by me in a futile attempt to pass this course.
+
+# Demo
+
+https://drive.google.com/file/d/1QMYbIR9Wv4c_T3GNPuE5uPFX-fGM3RnZ/view
 
 # License 
 
