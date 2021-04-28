@@ -1,8 +1,9 @@
 //dependencies
 const inquirer = require('inquirer');
 const mysql = require('mysql');
-const consoleTable = require('console.table');
+const {printTable} = require('console-table-printer');
 const pass = require('./config');
+const util = require('util');
 
 //questions
 const deptQues = require('./db/questions/dept');
@@ -20,7 +21,7 @@ const connection = mysql.createConnection({
     database: 'trackerDB',
 });
 
-module.exports = connection;
+
 
 //make a list w/switch statement
 //what would you like to do?
@@ -45,7 +46,7 @@ function init() {
     ],
 
 }) .then(function (answer) {
-    switch (answer.action) {
+    switch (answer.switch) {
         case 'View all employees':
             viewEmployees();
             break;
@@ -59,7 +60,7 @@ function init() {
             AddEmp();
             break;
         case 'Remove employee':
-            RemEmp();
+            remEmp();
             break;
         case 'Exit':
             connection.end();
@@ -80,7 +81,7 @@ function viewEmployees() {
     connection.query(query, function(err, res) {
         if (err) throw err;
         console.log(res.length + " employees match criteria");
-        console.table('All Employees:', res);
+        printTable(res);
         init();
     })
 }
@@ -90,7 +91,7 @@ function viewDepartments() {
     connection.query(query, function(err, res) {
         if (err) throw err;
         console.log(res.length + ' departments match criteria');
-        console.table('All Departments', res);
+        printTable(res);
         init();
     })
 
@@ -101,7 +102,7 @@ function viewRoles() {
     connection.query(query, function(err, res) {
         if(err) throw err;
         console.log(res.length + ' roles match criteria');
-        console.table('All roles', res);
+        printTable(res);
         init();
     })
 }
@@ -161,16 +162,27 @@ function AddEmp() {
     })
 }
 
-function removeEmp() {
+async function remEmp() {
+    connection.query = util.promisify(connection.query);
+
+    const employees = await connection.query('SELECT * FROM employee');
+    const employeeArray = employees.map(({first_name, last_name, id}) => ({
+       name: first_name + ' ' + last_name, 
+       value: id 
+    }))
+
+
+    console.log(employees);
     inquirer.prompt ({
         name: 'removeEmp',
-        type: 'input',
-        message: 'Confirm employee ID to remove'
+        type: 'list',
+        message: 'Confirm employee ID to remove',
+        choices: employeeArray
     })
      .then(function (answer) {
         console.log(answer);
         var query = 'DELETE FROM employee WHERE ?';
-        var newId = Number(answer.removeEmp);
+        var newId = answer.removeEmp;
         console.log(newId);
         connection.query(query, { id: newId }, function (err, res){
             init();
